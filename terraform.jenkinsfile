@@ -1,12 +1,6 @@
 pipeline {
     agent {label "java-11"}
     stages {
-        stage("url") {
-            steps {
-                git url: "https://github.com/yaradesikasirao/terraform2.git"
-                  branch: "main"
-            }
-        }
         stage("init") {
             steps {
                 sh "terraform init"
@@ -17,7 +11,7 @@ pipeline {
                 sh "terraform validate"
             }
         }
-        stages("autoapprove") {
+        stage("autoapprove") {
             steps {
                 sh "terraform apply --auto-approve"
             }
