@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'JAVA-11'}
     stages {
         stage("init") {
             steps {
